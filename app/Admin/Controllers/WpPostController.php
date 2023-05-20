@@ -42,6 +42,7 @@ class WpPostController extends AdminController
         });
 
         $grid->column('post_title', __('Title'))->sortable();
+        $grid->column('images', __('images'))->sortable();
         $grid->column('post_date', __('Posted'))->display(function ($t) {
             return Carbon::parse($t)->diffForHumans();
         })->sortable();
