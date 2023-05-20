@@ -37,12 +37,10 @@ class WpPostController extends AdminController
 
         $grid->column('ID', __('ID'))->sortable();
         $grid->column('image', __('thumb'))->display(function ($x) {
-            return $this->getThumb() ;
             return '<img width="100" src="' . $this->getThumb() . '" alt="Image">';
         });
 
         $grid->column('post_title', __('Title'))->sortable();
-        $grid->column('images', __('images'))->sortable();
         $grid->column('post_date', __('Posted'))->display(function ($t) {
             return Carbon::parse($t)->diffForHumans();
         })->sortable();
