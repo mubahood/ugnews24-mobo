@@ -18,4 +18,14 @@
  *
  */
 
+use App\Models\WpPost;
+use OpenApi\Annotations\Post;
+
 Encore\Admin\Form::forget(['map', 'editor']);
+
+
+/* $posts = WpPost::where([])->orderBy('id','desc')->get();
+dd($posts[1]->getThumb());
+dd($posts);
+
+die("Romina"); */

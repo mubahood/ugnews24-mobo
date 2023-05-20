@@ -28,22 +28,18 @@ class WpPostController extends AdminController
     {
         $grid = new Grid(new WpPost());
 
+        $grid->model()->orderBy('ID', 'desc');
+        $grid->disableBatchActions();
         $grid->model()
             ->where([
                 'post_type' => 'post',
             ]);
- 
-        $grid->column('ID', __('Thumb'))->display(function ($id){
-            $thumb = WpPost::where([
-                'post_parent' => $id,
-                'post_type' => 'attachment',
-            ])->first();
-            if(!$thumb){
-                return "-";
-            }
-            
-            return '<img width="100" src="'.$thumb->guid.'" alt="Image">';
+
+        $grid->column('ID', __('ID'))->sortable();
+        $grid->column('image', __('thumb'))->display(function ($x) {
+            return '<img width="100" src="' . $this->getThumb() . '" alt="Image">';
         });
+
         $grid->column('post_title', __('Title'))->sortable();
         $grid->column('post_date', __('Posted'))->display(function ($t) {
             return Carbon::parse($t)->diffForHumans();
