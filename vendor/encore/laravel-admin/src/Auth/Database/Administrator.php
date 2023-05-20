@@ -2,8 +2,6 @@
 
 namespace Encore\Admin\Auth\Database;
 
-use App\Models\MyClass;
-use App\Models\Subject;
 use Encore\Admin\Traits\DefaultDatetimeFormat;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
@@ -21,10 +19,6 @@ class Administrator extends Model implements AuthenticatableContract
     use Authenticatable;
     use HasPermissions;
     use DefaultDatetimeFormat;
-
-    public function subjects(){
-        return $this->hasMany(Subject::class);
-    }
 
     protected $fillable = ['username', 'password', 'name', 'avatar'];
 
