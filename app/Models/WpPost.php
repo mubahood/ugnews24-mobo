@@ -13,8 +13,7 @@ class WpPost extends Model
     public function getThumb()
     {
         $thumb = WpPost::where([
-            'post_parent' => $this->id,
-            'post_type' => 'attachment',
+            'post_parent' => $this->id, 
         ])->first();
         if ($thumb != null) {
             return $thumb->guid;
