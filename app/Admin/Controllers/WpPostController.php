@@ -27,13 +27,12 @@ class WpPostController extends AdminController
     protected function grid()
     {
         $grid = new Grid(new WpPost());
-
-        $grid->model()->orderBy('ID', 'desc');
+ 
         $grid->disableBatchActions();
         $grid->model()
             ->where([
                 'post_type' => 'post',
-            ]);
+            ])->orderBy('ID', 'desc');
 
         $grid->column('ID', __('ID'))->sortable();
         $grid->column('image', __('thumb'))->display(function ($x) {
