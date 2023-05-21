@@ -28,8 +28,7 @@ class ApiPostsController extends Controller
         ->whereNotIn('ID',$excludes)
         ->orderBy('id', 'Desc')->limit(100)->get() as $key => $p) {
             unset($p->post_author);
-            unset($p->post_date_gmt);
-            unset($p->post_content);
+            unset($p->post_date_gmt); 
             unset($p->post_title);
             unset($p->post_excerpt);
             unset($p->post_status);
@@ -40,8 +39,7 @@ class ApiPostsController extends Controller
             unset($p->to_ping);
             unset($p->post_modified);
             unset($p->pinged);
-            unset($p->post_modified_gmt);
-            unset($p->post_content_filtered);
+            unset($p->post_modified_gmt); 
             unset($p->post_parent);
             unset($p->post_type);
             unset($p->menu_order);
