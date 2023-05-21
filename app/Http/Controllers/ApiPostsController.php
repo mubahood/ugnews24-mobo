@@ -29,8 +29,7 @@ class ApiPostsController extends Controller
         ->orderBy('id', 'Desc')->limit(100)->get() as $key => $p) {
             unset($p->post_author);
             unset($p->post_date_gmt);
-            unset($p->post_content);
-            unset($p->post_title);
+            unset($p->post_content); 
             unset($p->post_excerpt);
             unset($p->post_status);
             unset($p->post_status);
