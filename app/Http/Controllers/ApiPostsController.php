@@ -53,7 +53,7 @@ class ApiPostsController extends Controller
             unset($p->images);
             unset($p->processed);
             $p->thumb = $p->getThumb(); 
-            $p->guid = '2'; 
+            $p->guid = '1'; 
             $posts[] = $p;
         }
         return Utils::success($posts);
