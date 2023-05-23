@@ -27,6 +27,7 @@ class ApiPostsController extends Controller
         ])
         ->whereNotIn('ID',$excludes)
         ->orderBy('id', 'Desc')->limit(100)->get() as $key => $p) {
+
             unset($p->post_author);
             unset($p->post_date_gmt);
             unset($p->post_content); 
@@ -52,6 +53,7 @@ class ApiPostsController extends Controller
             unset($p->images);
             unset($p->processed);
             $p->thumb = $p->getThumb(); 
+            $p->guid = '1';
             $posts[] = $p;
         }
         return Utils::success($posts);
