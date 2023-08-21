@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Request as FacadesRequest;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
+Route::get('/regester', function () {
     return view('auth.register');
 });
 /* Route::get('/', function () {
