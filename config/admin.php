@@ -11,7 +11,7 @@ return [
     | login page.
     |
     */
-    'name' => 'E-MS',
+    'name' => 'UGNEWS24',
 
     /*
     |--------------------------------------------------------------------------
@@ -22,7 +22,7 @@ return [
     | `img` tag, eg '<img src="http://logo-url" alt="Admin logo">'.
     |
     */
-    'logo' => '<b>E-MS</b>',
+    'logo' => '<b>UGNEWS24</b>',
 
     /*
     |--------------------------------------------------------------------------
@@ -34,7 +34,7 @@ return [
     | '<img src="http://logo-url" alt="Admin logo">'.
     |
     */
-    'logo-mini' => '<b>E-MS</b>',
+    'logo-mini' => '<b>UGNEWS24/b>',
 
     /*
     |--------------------------------------------------------------------------
@@ -275,7 +275,7 @@ return [
     |    "skin-red", "skin-red-light", "skin-black", "skin-black-light".
     |
     */
-    'skin' => 'skin-red',
+    'skin' => env('ADMIN_SKIN', 'skin-red'),
 
     /*
     |--------------------------------------------------------------------------
