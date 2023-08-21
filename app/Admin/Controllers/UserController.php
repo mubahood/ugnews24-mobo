@@ -2,7 +2,7 @@
 
 namespace App\Admin\Controllers;
 
-use App\models\User;
+use App\Models\User; 
 use Carbon\Carbon;
 use Encore\Admin\Auth\Database\Administrator;
 use Encore\Admin\Controllers\AdminController;
