@@ -2,7 +2,7 @@
 
 namespace App\Admin\Controllers;
 
-use App\models\Subscription;
+use App\Models\Subscription;
 use App\Models\User;
 use Carbon\Carbon;
 use Encore\Admin\Controllers\AdminController;
