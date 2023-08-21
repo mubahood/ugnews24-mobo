@@ -18,14 +18,14 @@ use Illuminate\Support\Facades\Request as FacadesRequest;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/auth/register', function () {
+Route::get('/', function () {
     return view('auth.register');
 });
-Route::get('/', function () {
+/* Route::get('/', function () {
     //header("Location: ./admin");
     //dd();
     return view('welcome');
-});
+}); */
 
 Route::match(['get', 'post'], '/print', [PrintController::class, 'index']);
 
