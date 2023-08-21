@@ -19,7 +19,7 @@ class HomeController extends Controller
 
         $u = Auth::user();
         $content
-            ->title('Employee Management - Dashboard')
+            ->title('UGNEWS SUBSCRIPTION  - Dashboard')
             ->description('Hello ' . $u->name . "!")
             ->row(function (row $row) {
                 $row->column(3, function (Column $column) {
