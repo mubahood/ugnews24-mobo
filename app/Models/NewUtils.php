@@ -7,7 +7,7 @@ use Carbon\CarbonPeriod;
 use Encore\Admin\Auth\Database\Administrator;
 use Faker\Factory as Faker;
 
-class Utils
+class NewUtils
 {
 
     public static function billSubscrsibibers()
