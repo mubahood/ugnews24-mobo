@@ -29,4 +29,9 @@ Route::group([
     $router->resource('general-exams', GeneralExamController::class);
     $router->resource('marks', MarkController::class);
     $router->resource('posts', WpPostController::class);
+
+    $router->get('/', 'HomeController@index')->name('home');
+    $router->resource('users', UserController::class);
+    $router->resource('subscriptions', SubscriptionController::class);
+
 });
