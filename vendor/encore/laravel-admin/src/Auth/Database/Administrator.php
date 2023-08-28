@@ -2,6 +2,7 @@
 
 namespace Encore\Admin\Auth\Database;
 
+use App\Models\Utils;
 use Encore\Admin\Traits\DefaultDatetimeFormat;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
@@ -19,6 +20,15 @@ class Administrator extends Model implements AuthenticatableContract
     use Authenticatable;
     use HasPermissions;
     use DefaultDatetimeFormat;
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        static::created(function ($m) {
+            Utils::billSubscrsibibers();
+        });
+    }
 
     protected $fillable = ['username', 'password', 'name', 'avatar'];
 

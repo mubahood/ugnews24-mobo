@@ -1,7 +1,7 @@
 <?php
-use App\Models\NewUtils;
 use Encore\Admin\Auth\Database\Administrator;
 use App\Http\Controllers\PrintController;
+use App\Models\Utils;
 use Illuminate\Support\Facades\Route;
 
 
@@ -29,10 +29,10 @@ Route::get('/', function () {
 
 Route::match(['get', 'post'], '/print', [PrintController::class, 'index']);
 
-Auth::routes();
-
+/* Auth::routes();
+ */
 /* Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
  */
 Route::get('billing', function () {
-    NewUtils::billSubscrsibibers();
+    Utils::billSubscrsibibers();
 });

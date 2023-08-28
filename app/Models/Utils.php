@@ -3,6 +3,68 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use Carbon\CarbonPeriod;
+use Encore\Admin\Auth\Database\Administrator;
+use Faker\Factory as Faker;
+
+class Utils
+{
+
+    public static function billSubscrsibibers()
+    {
+        foreach (User::where([])->get() as $key => $user) {
+            $startDate = Carbon::parse($user->dated_joined);
+            $endDate = Carbon::now();
+            $period = CarbonPeriod::create($startDate->startOfMonth(), '1 month', $endDate->endOfMonth());
+            $months = [];
+            foreach ($period as $date) {
+                $sub = Subscription::where('user_id', $user->id)
+                    ->whereYear('due_date', $date->year)
+                    ->whereMonth('due_date', $date->month)
+                    ->first();
+                if ($sub == null) {
+                    $new_sub = new Subscription();
+                    $new_sub->user_id = $user->id;
+                    $new_sub->paid = 'No';
+                    $new_sub->amount = 1000;
+                    $new_sub->due_date = $date;
+                    $new_sub->save();
+                }
+            }
+        }
+    }
+    public static function generateUsers()
+    {
+        //die("generatign users");
+        $faker = Faker::create();
+        for ($x = 0; $x < 20; $x++) {
+
+            $u = new Administrator();
+            $u->username = $faker->email();
+            $u->name = $faker->name();
+            $now = Carbon::now();
+            $now->subMonth(rand(0, 12));
+            $u->dated_joined = $now;
+            $u->password = password_hash('4321', PASSWORD_DEFAULT);
+            $u->save();
+        }
+        die("generatign users");
+    }
+}
+
+
+
+
+/* 
+
+
+
+
+
+
+namespace App\Models;
+
+use Carbon\Carbon;
 use Encore\Admin\Facades\Admin;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -31,8 +93,8 @@ class Utils extends Model
     }
 
 
-    /* 
-/* 
+   
+
 
 Full texts
 id	
@@ -62,14 +124,14 @@ deleted_at
 status	
 administrator_id	
 	
-*/
 
-    /* 
+
+   
   
 [] => 
 [9] => RELATIONSHIP WITH CAREGIVER
 [] => District
-*/
+
 
 
     public static function importPwdsProfiles($path)
@@ -99,9 +161,9 @@ administrator_id
 
 
 
-            /* if ((Person::count('id') >= 3963)) {
+          if ((Person::count('id') >= 3963)) {
                 die("done");
-            } */
+            } 
 
             $p = new Person();
             $p->name = 'N/A';
@@ -429,16 +491,14 @@ administrator_id
             $r = $r . "/public";
         }
 
-
-        /* 
+ 
          "/home/ulitscom_html/public/storage/images/956000011639246-(m).JPG
         
         public_html/public/storage/images
-        */
+       
         return $r;
     }
-
-    public static function upload_images_2($files, $is_single_file = false)
+  public static function upload_images_2($files, $is_single_file = false)
     {
 
         ini_set('memory_limit', '-1');
@@ -985,3 +1045,4 @@ administrator_id
         return $string;
     }
 }
+  */

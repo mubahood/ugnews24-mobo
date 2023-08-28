@@ -2,7 +2,12 @@
 
 namespace App\Admin\Controllers;
 
+<<<<<<< Updated upstream
 use App\Models\Subscription;
+=======
+use App\models\Subscription;
+
+>>>>>>> Stashed changes
 use App\Models\User;
 use Carbon\Carbon;
 use Encore\Admin\Controllers\AdminController;
