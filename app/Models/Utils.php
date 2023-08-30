@@ -10,6 +10,26 @@ use Faker\Factory as Faker;
 class Utils
 {
 
+    public static function success($data = [], $message = "")
+    {
+        return (response()->json([
+            'code' => 1,
+            'message' => $message,
+            'data' => $data
+        ]));
+    }
+
+    public static function error($message = "")
+    {
+        return response()->json([
+            'code' => 0,
+            'message' => $message,
+            'data' => ""
+        ]);
+    }
+
+
+
     public static function billSubscrsibibers()
     {
         foreach (User::where([])->get() as $key => $user) {
@@ -74,23 +94,6 @@ class Utils extends Model
 {
     use HasFactory;
 
-    public static function success($data = [], $message = "")
-    {
-        return (response()->json([
-            'code' => 1,
-            'message' => $message,
-            'data' => $data
-        ]));
-    }
-
-    public static function error($message = "")
-    {
-        return response()->json([
-            'code' => 0,
-            'message' => $message,
-            'data' => ""
-        ]);
-    }
 
 
    
